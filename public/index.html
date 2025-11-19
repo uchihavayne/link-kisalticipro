@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- PropellerAds Verification Code -->
+    <meta name="monetag" content="fdfb130f3ce49b2e977b408b0c93d4ef">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro Chrome Extensions - Sound Booster & Link Shortener</title>
@@ -46,6 +49,222 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* MODAL STYLES */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 0;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            animation: slideUp 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 40px 30px 30px;
+            color: white;
+            position: relative;
+        }
+
+        .modal-header.install {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+        }
+
+        .modal-header.uninstall {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+            pointer-events: none;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 2;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .modal-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .modal-title {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .modal-subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .modal-body {
+            padding: 30px;
+            text-align: left;
+        }
+
+        .feedback-form {
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(244, 24, 146, 0.1);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .feature-step {
+            background: var(--bg-secondary);
+            padding: 20px 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 10px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(244, 24, 146, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(244, 24, 146, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+        }
+
+        .auto-close-timer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         /* Header Controls */
@@ -134,6 +353,33 @@
             margin: 25px auto;
         }
         
+        /* Banner Stilleri */
+        .banner-container {
+            width: 100%;
+            max-width: 728px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .banner-placeholder {
+            width: 728px;
+            height: 90px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 0 auto;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
         /* Extensions Grid */
         .extensions-grid {
             display: grid;
@@ -240,35 +486,6 @@
             50% { transform: scaleY(0.7); }
         }
         
-        .btn {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 18px 45px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.2em;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin: 15px 10px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(244, 24, 146, 0.3);
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(244, 24, 146, 0.4);
-        }
-        .btn-secondary {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            border: 2px solid var(--border);
-        }
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
         .footer {
             margin-top: 70px;
             padding: 40px;
@@ -316,10 +533,91 @@
                 justify-content: center;
                 flex-wrap: wrap;
             }
+            .banner-placeholder {
+                width: 320px;
+                height: 100px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- MODAL POPUP -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header" id="modalHeader">
+                <button class="modal-close" onclick="closeModal()">×</button>
+                <div class="modal-icon" id="modalIcon">🎉</div>
+                <h2 class="modal-title" id="modalTitle">Thank You!</h2>
+                <p class="modal-subtitle" id="modalSubtitle">Your extension has been installed</p>
+            </div>
+            
+            <div class="modal-body">
+                <!-- INSTALL CONTENT -->
+                <div id="installContent" style="display: none;">
+                    <p><strong>Get started in 3 simple steps:</strong></p>
+                    
+                    <div class="features-grid">
+                        <div class="feature-step">
+                            <div class="step-number">1</div>
+                            <div>Pin to toolbar</div>
+                        </div>
+                        <div class="feature-step">
+                            <div class="step-number">2</div>
+                            <div>Click extension icon</div>
+                        </div>
+                        <div class="feature-step">
+                            <div class="step-number">3</div>
+                            <div>Start using features</div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button class="btn" onclick="closeModal()">🚀 Got It!</button>
+                        <a href="#user-guide" class="btn btn-secondary" onclick="closeModal()">📖 User Guide</a>
+                    </div>
+                </div>
+                
+                <!-- UNINSTALL CONTENT -->
+                <div id="uninstallContent" style="display: none;">
+                    <div class="feedback-form">
+                        <p><strong>Help us improve:</strong></p>
+                        
+                        <div class="form-group">
+                            <label for="uninstallReason">Why did you uninstall?</label>
+                            <select id="uninstallReason">
+                                <option value="">Select a reason...</option>
+                                <option value="not-useful">Not useful for my needs</option>
+                                <option value="technical-issues">Technical issues</option>
+                                <option value="performance">Performance concerns</option>
+                                <option value="ui-issues">Didn't like the interface</option>
+                                <option value="missing-features">Missing features I need</option>
+                                <option value="found-better">Found a better alternative</option>
+                                <option value="other">Other reason</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestions">How can we improve? (optional)</label>
+                            <textarea id="suggestions" placeholder="Your suggestions..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button class="btn" onclick="submitFeedback()">📤 Submit Feedback</button>
+                        <button class="btn btn-secondary" onclick="closeModal()">🚀 Explore Other Extensions</button>
+                    </div>
+                </div>
+                
+                <div class="auto-close-timer" id="autoCloseTimer">
+                    This popup will close automatically in <span id="countdown">10</span> seconds
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <!-- Header Controls -->
         <div class="header-controls">
@@ -478,6 +776,117 @@
     </div>
 
     <script>
+        // URL parametrelerini kontrol et
+        const urlParams = new URLSearchParams(window.location.search);
+        const action = urlParams.get('action');
+        const extension = urlParams.get('extension');
+
+        let countdownTimer;
+        let secondsLeft = 10;
+
+        // Modal aç
+        function openModal(type, extensionName) {
+            const modal = document.getElementById('modalOverlay');
+            const header = document.getElementById('modalHeader');
+            const icon = document.getElementById('modalIcon');
+            const title = document.getElementById('modalTitle');
+            const subtitle = document.getElementById('modalSubtitle');
+            const installContent = document.getElementById('installContent');
+            const uninstallContent = document.getElementById('uninstallContent');
+
+            if (type === 'install') {
+                // INSTALL MODAL
+                header.className = 'modal-header install';
+                icon.textContent = '🎉';
+                title.textContent = 'Thank You!';
+                subtitle.textContent = `${extensionName} has been successfully installed`;
+                installContent.style.display = 'block';
+                uninstallContent.style.display = 'none';
+            } else if (type === 'uninstall') {
+                // UNINSTALL MODAL
+                header.className = 'modal-header uninstall';
+                icon.textContent = '😔';
+                title.textContent = 'We\'ll Miss You!';
+                subtitle.textContent = `Thank you for trying ${extensionName}`;
+                installContent.style.display = 'none';
+                uninstallContent.style.display = 'block';
+            }
+
+            modal.style.display = 'flex';
+            startCountdown();
+        }
+
+        // Modal kapat
+        function closeModal() {
+            const modal = document.getElementById('modalOverlay');
+            modal.style.display = 'none';
+            clearInterval(countdownTimer);
+            
+            // URL'den parametreleri temizle
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        // Geri sayım başlat
+        function startCountdown() {
+            secondsLeft = 10;
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = secondsLeft;
+
+            countdownTimer = setInterval(() => {
+                secondsLeft--;
+                countdownElement.textContent = secondsLeft;
+
+                if (secondsLeft <= 0) {
+                    closeModal();
+                }
+            }, 1000);
+        }
+
+        // Feedback gönder
+        function submitFeedback() {
+            const reason = document.getElementById('uninstallReason').value;
+            const suggestions = document.getElementById('suggestions').value;
+
+            if (!reason) {
+                alert('Please select a reason for uninstalling.');
+                return;
+            }
+
+            // Burada feedback'i analytics servisine gönderebilirsiniz
+            console.log('Feedback submitted:', { 
+                extension: extension, 
+                reason: reason, 
+                suggestions: suggestions 
+            });
+
+            alert('Thank you for your feedback! We appreciate your help in making our extensions better.');
+            closeModal();
+        }
+
+        // Sayfa yüklendiğinde modal'ı kontrol et
+        document.addEventListener('DOMContentLoaded', function() {
+            if (action && extension) {
+                // 1 saniye sonra modal'ı aç (sayfanın yüklenmesi için)
+                setTimeout(() => {
+                    openModal(action, extension);
+                }, 1000);
+            }
+        });
+
+        // ESC tuşu ile kapat
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Overlay'e tıklayınca kapat
+        document.getElementById('modalOverlay').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
